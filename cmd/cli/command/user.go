@@ -2,6 +2,7 @@ package command
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"strings"
 
@@ -14,13 +15,14 @@ var (
 	UserCmd = &cobra.Command{
 		Use:   "user",
 		Short: "User Command:\t Just run `cli user test/register/auth/refresh/info`",
-		Run: func(cmd *cobra.Command, args []string) {
+		Args: func(cmd *cobra.Command, args []string) error {
 			if !checkArgs(args, 0, 0) {
-				return
+				return fmt.Errorf("error args length")
 			}
-
+			return nil
+		},
+		Run: func(cmd *cobra.Command, args []string) {
 			op, arg := parseUserAgrs(args)
-
 			switch op {
 			case "test":
 				handleResp(node.User.UserTest(context.Background(), &user_pb.UserTestReq{}))
@@ -58,9 +60,7 @@ var (
 )
 
 func parseUserAgrs(args []string) (op string, arg []string) {
-	op = strings.ToLower(args[0])
-	arg = args[1:]
-	return
+	return strings.ToLower(args[0]), args[1:]
 }
 
 func checkArgLength(arg []string, theshould int) bool {

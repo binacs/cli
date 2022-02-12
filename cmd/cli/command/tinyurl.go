@@ -2,6 +2,7 @@ package command
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"strings"
 
@@ -14,13 +15,14 @@ var (
 	TinyurlCmd = &cobra.Command{
 		Use:   "tinyurl",
 		Short: "TinyURL Command:\t Just run `cli tinyurl encode/decode sth.`",
-		Run: func(cmd *cobra.Command, args []string) {
+		Args: func(cmd *cobra.Command, args []string) error {
 			if !checkArgs(args, 2, 2) {
-				return
+				return fmt.Errorf("error args length")
 			}
-
+			return nil
+		},
+		Run: func(cmd *cobra.Command, args []string) {
 			op, url := parseTinyurlAgrs(args)
-
 			switch op {
 			case "encode":
 				handleResp(node.TinyURL.TinyURLEncode(context.Background(), &tinyurl_pb.TinyURLEncodeReq{
@@ -38,7 +40,5 @@ var (
 )
 
 func parseTinyurlAgrs(args []string) (op, url string) {
-	op = strings.ToLower(args[0])
-	url = args[1]
-	return
+	return strings.ToLower(args[0]), args[1]
 }

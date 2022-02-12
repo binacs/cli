@@ -2,6 +2,7 @@ package command
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"strings"
 
@@ -14,13 +15,14 @@ var (
 	CryptoCmd = &cobra.Command{
 		Use:   "crypto",
 		Short: "Crypto Command:\t Just run `cli crypto encrypt/decrypt BASE64/AES/DES sth.(string)`",
-		Run: func(cmd *cobra.Command, args []string) {
+		Args: func(cmd *cobra.Command, args []string) error {
 			if !checkArgs(args, 3, 0) {
-				return
+				return fmt.Errorf("error args length")
 			}
-
+			return nil
+		},
+		Run: func(cmd *cobra.Command, args []string) {
 			op, algo, text := parseCryptoAgrs(args)
-
 			switch op {
 			case "encrypt":
 				handleResp(node.Crypto.CryptoEncrypt(context.Background(), &crypto_pb.CryptoEncryptReq{

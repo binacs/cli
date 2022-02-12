@@ -1,7 +1,6 @@
 package service
 
 import (
-	"log"
 	"os"
 
 	"google.golang.org/grpc"
@@ -37,18 +36,15 @@ func InitService(conn *grpc.ClientConn) *NodeServiceImpl {
 
 	nodeSvc := NodeServiceImpl{}
 
-	// Loggers
+	// Services
 	inject.Regist("Conn", conn)
 	inject.Regist("Cos", &CosClientImpl{})
 	inject.Regist("Crypto", &CryptoClientImpl{})
 	inject.Regist("Pastebin", &PastebinClientImpl{})
 	inject.Regist("TinyURL", &TinyURLClientImpl{})
 	inject.Regist("User", &UserClientImpl{})
-
 	inject.Regist("Node", &nodeSvc)
 
-	if err := inject.DoInject(); err != nil {
-		log.Fatal(err)
-	}
+	inject.DoInject()
 	return &nodeSvc
 }

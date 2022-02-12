@@ -29,10 +29,7 @@ var (
 		Short: "Start Command",
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			setInstance()
-			if err := dailAndServe(); err != nil {
-				return err
-			}
-			return nil
+			return dailAndServe()
 		},
 	}
 )
@@ -97,8 +94,5 @@ func dailAndServe() error {
 	tinyurl_pb.RegisterTinyURLServer(s, node.TinyURL.(tinyurl_pb.TinyURLServer))
 	user_pb.RegisterUserServer(s, node.User.(user_pb.UserServer))
 
-	if err := s.Serve(lis); err != nil {
-		return err
-	}
-	return nil
+	return s.Serve(lis)
 }

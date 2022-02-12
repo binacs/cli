@@ -2,6 +2,7 @@ package command
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"strings"
 
@@ -14,13 +15,14 @@ var (
 	PastebinCmd = &cobra.Command{
 		Use:   "pastebin",
 		Short: "PasteBin Command:\t Just run `cli pastebin submit sth.(file)`",
-		Run: func(cmd *cobra.Command, args []string) {
+		Args: func(cmd *cobra.Command, args []string) error {
 			if !checkArgs(args, 2, 2) {
-				return
+				return fmt.Errorf("error args length")
 			}
-
+			return nil
+		},
+		Run: func(cmd *cobra.Command, args []string) {
 			op, file := parsePastebinAgrs(args)
-
 			switch op {
 			case "submit":
 				file, data := processReadFile(file)
@@ -31,6 +33,8 @@ var (
 				} else {
 					log.Printf(errorReadFile, file, data)
 				}
+			// TODO:
+			// case "posts":
 			default:
 				log.Printf(errorOpInvalid)
 			}
@@ -39,7 +43,5 @@ var (
 )
 
 func parsePastebinAgrs(args []string) (op, file string) {
-	op = strings.ToLower(args[0])
-	file = args[1]
-	return
+	return strings.ToLower(args[0]), args[1]
 }

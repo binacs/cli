@@ -2,6 +2,7 @@ package command
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"strings"
 
@@ -14,13 +15,14 @@ var (
 	CosCmd = &cobra.Command{
 		Use:   "cos",
 		Short: "Cos Command:\t Just run `cli cos put/get sth.(file)`",
-		Run: func(cmd *cobra.Command, args []string) {
+		Args: func(cmd *cobra.Command, args []string) error {
 			if !checkArgs(args, 2, 2) {
-				return
+				return fmt.Errorf("error args length")
 			}
-
+			return nil
+		},
+		Run: func(cmd *cobra.Command, args []string) {
 			op, arg := parseCosAgrs(args)
-
 			switch op {
 			case "put":
 				file, data := processReadFile(arg)
@@ -45,7 +47,5 @@ var (
 )
 
 func parseCosAgrs(args []string) (op, arg string) {
-	op = strings.ToLower(args[0])
-	arg = args[1]
-	return
+	return strings.ToLower(args[0]), args[1]
 }
