@@ -41,7 +41,7 @@ func init() {
 func startCmdFlags(cmd *cobra.Command) {
 	cmd.PersistentFlags().StringVar(&instance, "instance", "", "Local instance name")
 	cmd.PersistentFlags().StringVar(&domain, "domain", "api.binacs.cn", "API domain such as api.binacs.cn")
-	cmd.PersistentFlags().StringVar(&port, "port", ":443", "API port such as :443")
+	cmd.PersistentFlags().StringVar(&port, "port", ":30000", "API port such as :30000")
 }
 
 func setInstance() {
