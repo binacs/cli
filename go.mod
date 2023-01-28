@@ -1,6 +1,6 @@
 module github.com/BinacsLee/cli
 
-go 1.17
+go 1.19
 
 require (
 	github.com/BinacsLee/server v0.0.0-20220122063519-0693ef46338b
