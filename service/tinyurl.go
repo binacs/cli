@@ -5,7 +5,7 @@ import (
 
 	"google.golang.org/grpc"
 
-	tinyurl_pb "github.com/BinacsLee/server/api/tinyurl"
+	tinyurl_pb "github.com/binacs/server/api/tinyurl"
 )
 
 // TinyURLClientImpl client implement

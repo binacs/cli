@@ -7,10 +7,10 @@ import (
 	"github.com/spf13/cobra"
 	"google.golang.org/grpc"
 
-	"github.com/BinacsLee/server/types"
+	"github.com/binacs/server/types"
 
-	"github.com/BinacsLee/cli/service"
-	"github.com/BinacsLee/cli/util"
+	"github.com/binacs/cli/service"
+	"github.com/binacs/cli/util"
 )
 
 var node *service.NodeServiceImpl
@@ -24,7 +24,7 @@ func unixConnect(addr string, t time.Duration) (net.Conn, error) {
 var (
 	RootCmd = &cobra.Command{
 		Use:   "root",
-		Short: "Terminal client for https://binacs.cn\nMore at https://github.com/BinacsLee/cli",
+		Short: "Terminal client for https://binacs.cn\nMore at https://github.com/binacs/cli",
 		PersistentPreRunE: func(cmd *cobra.Command, args []string) (err error) {
 			conn, err := grpc.Dial(util.GetSockPath(),
 				grpc.WithBlock(),

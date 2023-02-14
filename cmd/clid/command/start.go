@@ -9,16 +9,16 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 
-	"github.com/BinacsLee/server/types"
+	"github.com/binacs/server/types"
 
-	cos_pb "github.com/BinacsLee/server/api/cos"
-	crypto_pb "github.com/BinacsLee/server/api/crypto"
-	pastebin_pb "github.com/BinacsLee/server/api/pastebin"
-	tinyurl_pb "github.com/BinacsLee/server/api/tinyurl"
-	user_pb "github.com/BinacsLee/server/api/user"
+	cos_pb "github.com/binacs/server/api/cos"
+	crypto_pb "github.com/binacs/server/api/crypto"
+	pastebin_pb "github.com/binacs/server/api/pastebin"
+	tinyurl_pb "github.com/binacs/server/api/tinyurl"
+	user_pb "github.com/binacs/server/api/user"
 
-	"github.com/BinacsLee/cli/service"
-	"github.com/BinacsLee/cli/util"
+	"github.com/binacs/cli/service"
+	"github.com/binacs/cli/util"
 )
 
 var instance, domain, port string

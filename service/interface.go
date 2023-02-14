@@ -3,11 +3,11 @@ package service
 import (
 	"context"
 
-	cos_pb "github.com/BinacsLee/server/api/cos"
-	crypto_pb "github.com/BinacsLee/server/api/crypto"
-	pastebin_pb "github.com/BinacsLee/server/api/pastebin"
-	tinyurl_pb "github.com/BinacsLee/server/api/tinyurl"
-	user_pb "github.com/BinacsLee/server/api/user"
+	cos_pb "github.com/binacs/server/api/cos"
+	crypto_pb "github.com/binacs/server/api/crypto"
+	pastebin_pb "github.com/binacs/server/api/pastebin"
+	tinyurl_pb "github.com/binacs/server/api/tinyurl"
+	user_pb "github.com/binacs/server/api/user"
 )
 
 // CosClient tinyurl client

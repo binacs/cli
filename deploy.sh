@@ -38,7 +38,7 @@ EOF
         cat <<EOF | sudo tee /etc/systemd/system/binacs-cli.service
 [Unit]
 Description=binacs-cli
-Documentation=https://github.com/BinacsLee/cli
+Documentation=https://github.com/binacs/cli
 [Service]
 ExecStart=/usr/sbin/clid start
 Restart=on-failure

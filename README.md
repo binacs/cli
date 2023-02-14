@@ -22,7 +22,7 @@ Golang enviroment.
     ```sh
     $ cli --help
     Terminal client for https://binacs.cn
-    More at https://github.com/BinacsLee/cli
+    More at https://github.com/binacs/cli
     
     Usage:
       root [command]

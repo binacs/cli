@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	cmd "github.com/BinacsLee/cli/cmd/cli/command"
+	cmd "github.com/binacs/cli/cmd/cli/command"
 )
 
 func main() {

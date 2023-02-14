@@ -5,7 +5,7 @@ import (
 
 	"google.golang.org/grpc"
 
-	crypto_pb "github.com/BinacsLee/server/api/crypto"
+	crypto_pb "github.com/binacs/server/api/crypto"
 )
 
 // CryptoClientImpl Web crypto client implement

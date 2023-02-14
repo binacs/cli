@@ -5,7 +5,7 @@ import (
 
 	"google.golang.org/grpc"
 
-	pastebin_pb "github.com/BinacsLee/server/api/pastebin"
+	pastebin_pb "github.com/binacs/server/api/pastebin"
 )
 
 // PastebinClientImpl Web crypto service implement

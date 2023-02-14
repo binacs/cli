@@ -5,7 +5,7 @@ import (
 
 	"google.golang.org/grpc"
 
-	cos_pb "github.com/BinacsLee/server/api/cos"
+	cos_pb "github.com/binacs/server/api/cos"
 )
 
 // CosClientImpl Web crypto client implement

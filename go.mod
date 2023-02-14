@@ -1,16 +1,16 @@
-module github.com/BinacsLee/cli
+module github.com/binacs/cli
 
 go 1.19
 
 require (
-	github.com/BinacsLee/server v0.0.0-20220122063519-0693ef46338b
-	github.com/binacsgo/inject v0.0.0-20211121070049-6fd0aad6b52a
+	github.com/binacs/server v0.0.0-20230214003624-169fd90e2189
+	github.com/binacsgo/inject v0.0.0-20220604135548-1c17b3b6c038
 	github.com/spf13/cobra v1.6.1
 	google.golang.org/grpc v1.53.0
 )
 
 require (
-	github.com/binacsgo/graph v0.0.0-20211121034315-55d98084536f // indirect
+	github.com/binacsgo/graph v0.0.0-20220604094945-8cd8fcf6f414 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/grpc-ecosystem/grpc-gateway v1.16.0 // indirect
 	github.com/inconshreveable/mousetrap v1.0.1 // indirect

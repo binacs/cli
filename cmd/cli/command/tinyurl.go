@@ -8,7 +8,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	tinyurl_pb "github.com/BinacsLee/server/api/tinyurl"
+	tinyurl_pb "github.com/binacs/server/api/tinyurl"
 )
 
 var (

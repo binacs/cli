@@ -8,7 +8,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	user_pb "github.com/BinacsLee/server/api/user"
+	user_pb "github.com/binacs/server/api/user"
 )
 
 var (

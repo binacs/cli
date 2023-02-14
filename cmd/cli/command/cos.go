@@ -8,7 +8,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	cos_pb "github.com/BinacsLee/server/api/cos"
+	cos_pb "github.com/binacs/server/api/cos"
 )
 
 var (
