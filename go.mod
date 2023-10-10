@@ -6,7 +6,7 @@ require (
 	github.com/binacs/server v0.0.0-20230214003624-169fd90e2189
 	github.com/binacsgo/inject v0.0.0-20220604135548-1c17b3b6c038
 	github.com/spf13/cobra v1.7.0
-	google.golang.org/grpc v1.58.1
+	google.golang.org/grpc v1.58.3
 )
 
 require (
