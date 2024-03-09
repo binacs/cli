@@ -24,7 +24,7 @@ func unixConnect(addr string, t time.Duration) (net.Conn, error) {
 var (
 	RootCmd = &cobra.Command{
 		Use:   "root",
-		Short: "Terminal client for https://binacs.cn\nMore at https://github.com/binacs/cli",
+		Short: "Terminal client for https://binacs.space\nMore at https://github.com/binacs/cli",
 		PersistentPreRunE: func(cmd *cobra.Command, args []string) (err error) {
 			conn, err := grpc.Dial(util.GetSockPath(),
 				grpc.WithBlock(),
