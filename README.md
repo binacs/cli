@@ -1,5 +1,5 @@
 # cli
-Terminal client for Server. Quick visit https://binacs.cn
+Terminal client for Server. Quick visit https://binacs.space
 
 ## 1. Preparation
 
@@ -7,7 +7,7 @@ Golang enviroment.
 
 ## 2. Usage
 
-1.  Deploy `clid` which is the daemon program connected to *api.binacs.cn* , and `cli` which you use.
+1.  Deploy `clid` which is the daemon program connected to *api.binacs.space* , and `cli` which you use.
 
     **Run deploy.sh:**
 
@@ -15,13 +15,13 @@ Golang enviroment.
     $ ./deploy.sh
     ```
 
-2.  Quick visit binacs.cn serivice by the command line tool `cli`.
+2.  Quick visit binacs.space serivice by the command line tool `cli`.
 
     **Run `cli --help` to see more details:**
 
     ```sh
     $ cli --help
-    Terminal client for https://binacs.cn
+    Terminal client for https://binacs.space
     More at https://github.com/binacs/cli
     
     Usage:
@@ -44,10 +44,10 @@ Golang enviroment.
 
 ## 3. More
 
-1.  `cos` : Storage service, web at https://binacs.cn/toys/storage .
-2.  `crypto` : Crypto service, web at https://binacs.cn/toys/crypto
-3.  `pastebin` : PasteBin service, web at https://binacs.cn/toys/pastebin .
-4.  `tinyurl` : TinyURL service, web at https://binacs.cn/toys/tinyurl .
+1.  `cos` : Storage service, web at https://binacs.space/toys/storage .
+2.  `crypto` : Crypto service, web at https://binacs.space/toys/crypto
+3.  `pastebin` : PasteBin service, web at https://binacs.space/toys/pastebin .
+4.  `tinyurl` : TinyURL service, web at https://binacs.space/toys/tinyurl .
 5.  `user` : User service, only for cli.
 6.  `version`: Show version infomation.
 7.  `help` : You know.
