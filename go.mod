@@ -5,7 +5,7 @@ go 1.22
 require (
 	github.com/binacs/server v0.0.0-20240325145123-9dc0f497f711
 	github.com/binacsgo/inject v0.0.0-20220604135548-1c17b3b6c038
-	github.com/spf13/cobra v1.8.1
+	github.com/spf13/cobra v1.9.1
 	google.golang.org/grpc v1.70.0
 )
 
@@ -14,7 +14,7 @@ require (
 	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/grpc-ecosystem/grpc-gateway v1.16.0 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
-	github.com/spf13/pflag v1.0.5 // indirect
+	github.com/spf13/pflag v1.0.6 // indirect
 	golang.org/x/net v0.33.0 // indirect
 	golang.org/x/sys v0.28.0 // indirect
 	golang.org/x/text v0.21.0 // indirect
