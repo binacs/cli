@@ -7,7 +7,7 @@ toolchain go1.24.1
 require (
 	github.com/binacs/server v0.0.0-20240325145123-9dc0f497f711
 	github.com/binacsgo/inject v0.0.0-20220604135548-1c17b3b6c038
-	github.com/spf13/cobra v1.10.1
+	github.com/spf13/cobra v1.10.2
 	google.golang.org/grpc v1.76.0
 )
 
