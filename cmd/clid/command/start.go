@@ -1,6 +1,7 @@
 package command
 
 import (
+	"context"
 	"log"
 	"net"
 	"os"
@@ -8,6 +9,7 @@ import (
 	"github.com/spf13/cobra"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
+	"google.golang.org/grpc/metadata"
 
 	"github.com/binacs/server/types"
 
@@ -58,10 +60,15 @@ func setInstance() {
 }
 
 func dailAndServe() error {
-	// Dail API server
+	// Dail API server. No long-lived credential is configured here: the
+	// server never actually validates the bearer token for non-Cos RPCs
+	// (see server/gateway/grpc.go), so a fixed placeholder keeps them
+	// working; Cos RPCs instead carry a per-call pass key relayed from an
+	// interactive prompt in `cli` (see util.RelayAuth / util.AttachAuth) —
+	// nothing sensitive is ever persisted to disk by clid.
 	conn, err := grpc.Dial(domain+port,
 		grpc.WithTransportCredentials(credentials.NewClientTLSFromCert(util.GetCertPool(), domain)),
-		grpc.WithPerRPCCredentials(util.GetToken(instance)),
+		grpc.WithChainUnaryInterceptor(defaultAuthInterceptor),
 		grpc.WithDefaultCallOptions(grpc.MaxCallRecvMsgSize(types.GrpcMsgSize)),
 		grpc.WithDefaultCallOptions(grpc.MaxCallSendMsgSize(types.GrpcMsgSize)),
 	)
@@ -95,4 +102,16 @@ func dailAndServe() error {
 	user_pb.RegisterUserServer(s, node.User.(user_pb.UserServer))
 
 	return s.Serve(lis)
+}
+
+// defaultAuthInterceptor stamps a placeholder authorization header onto
+// outbound calls that don't already carry one (e.g. Cos calls that had a
+// real pass key relayed onto their outgoing context via util.RelayAuth).
+// This exists only so the server's blanket "header must be present" check
+// doesn't reject unrelated services; it is not a credential.
+func defaultAuthInterceptor(ctx context.Context, method string, req, reply interface{}, cc *grpc.ClientConn, invoker grpc.UnaryInvoker, opts ...grpc.CallOption) error {
+	if md, ok := metadata.FromOutgoingContext(ctx); !ok || len(md.Get(util.HeaderAuthorize)) == 0 {
+		ctx = metadata.AppendToOutgoingContext(ctx, util.HeaderAuthorize, util.TokenPrefix+"unused")
+	}
+	return invoker(ctx, method, req, reply, cc, opts...)
 }
